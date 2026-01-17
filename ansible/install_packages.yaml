@@ -1,0 +1,16 @@
+---
+- name: Installeer Apache en Git op alle servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+    - name: Installeer Apache
+      apt:
+        name: apache2
+        state: present
+    - name: Installeer Git
+      apt:
+        name: git
+        state: present
